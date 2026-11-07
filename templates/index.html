@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>KAY 匿名聊天</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+<div class="shell">
+  <header><div class="brand"><span class="logo">K</span><div><b>KAY</b><small>匿名通訊空間</small></div></div><button id="logout" class="ghost hidden">登出</button></header>
+  <main>
+    <section id="auth" class="auth card">
+      <div class="eyebrow">PRIVATE BY DESIGN</div><h1>用 KAY 編碼<br>開始匿名聊天。</h1>
+      <p class="muted">不需要公開真實姓名。使用私人編碼登入，使用公共編碼讓別人找到你。</p>
+      <div class="tabs"><button class="tab active" data-tab="register">建立新帳戶</button><button class="tab" data-tab="login">已有私人編碼</button></div>
+      <div id="registerPane"><label>顯示名稱（可用匿名名稱）</label><input id="name" maxlength="24" placeholder="例如：Kay_01"><button id="register" class="primary full">建立 KAY 帳戶</button></div>
+      <div id="loginPane" class="hidden"><label>私人 KAY 編碼</label><input id="privateCode" placeholder="KAYP-..." autocomplete="off"><button id="login" class="primary full">登入</button></div>
+      <div id="authNotice" class="notice hidden"></div>
+    </section>
+    <section id="app" class="workspace hidden">
+      <aside class="sidebar card">
+        <div class="profile"><div class="avatar">K</div><div><b id="displayName">匿名使用者</b><small>已登入</small></div></div>
+        <div class="mycode"><small>你的公共 KAY</small><strong id="myPublic">—</strong><button id="copyMyCode" class="copy">複製編碼</button></div>
+        <div class="side-title">你的對話 <button id="refresh" class="tiny">↻</button></div>
+        <div id="conversationList" class="conversation-list"></div>
+        <div class="side-actions"><button id="newDM" class="secondary">＋ 私訊</button><button id="join" class="secondary">加入</button></div>
+        <div class="side-actions"><button id="newGroup" class="secondary">＋ 群組</button><button id="newChannel" class="secondary">＋ 頻道</button></div>
+      </aside>
+      <section class="chat card">
+        <div id="empty" class="empty"><div class="empty-icon">✳</div><h2>選擇一個對話</h2><p>輸入對方的公共 KAY，或建立群組／頻道。</p></div>
+        <div id="chatPanel" class="hidden">
+          <div class="chat-head"><div><small id="chatKind">對話</small><h2 id="chatName">—</h2></div><button id="copyRoom" class="ghost">複製公共編碼</button></div>
+          <div id="messages" class="messages"></div>
+          <form id="sendForm" class="composer"><input id="messageInput" maxlength="2000" placeholder="輸入訊息…" autocomplete="off"><button class="primary">傳送</button></form>
+        </div>
+      </section>
+    </section>
+  </main>
+  <footer>保持匿名，也請尊重其他人的界線。不要分享私人 KAY、密碼或個人資料。</footer>
+</div>
+<div id="modal" class="modal hidden"><div class="modal-card"><button id="closeModal" class="close">×</button><h2 id="modalTitle"></h2><div id="modalBody"></div></div></div>
+<script src="/static/js/app.js"></script>
+</body></html>
